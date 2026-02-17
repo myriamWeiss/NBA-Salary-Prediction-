@@ -1,101 +1,78 @@
-# NBA-Salary-Prediction-
-NBA Salary Prediction Using Linear &amp; Regularized Regression Models
+# NBA Salary Prediction – Regression & Regularization Analysis
 
-This project builds and compares multiple regression models to explain and predict NBA players' annual salaries based on performance statistics.
+## Executive Summary
 
-## Objective
+This project analyzes the relationship between NBA player performance metrics 
+and salary using linear regression models.
 
-To model the relationship between player performance metrics and salary, and evaluate different regression approaches to determine which provides the best predictive performance.
+OLS, Ridge, and Lasso regression were implemented and compared 
+to evaluate the impact of multicollinearity and regularization 
+on predictive performance.
 
-The target variable is:
-- Log-transformed annual salary
-
----
-
-## Dataset
-
-The dataset includes NBA players across multiple seasons with features such as:
-
-- Minutes Played (MIN)
-- Field Goals Made (FGM)
-- 3-Point Field Goals (3PM)
-- Free Throws Made (FTM)
-- Free Throw Percentage (FT%)
-- Rebounds (REB)
-- Assists (AST)
-- Steals (STL)
-- Blocks (BLK)
-- Turnovers (TO)
-
-Text-based variables (player, team, position) were removed.
+The final model explains ~43% of salary variance, suggesting that 
+while performance is a key driver of compensation, 
+non-performance factors play a substantial role.
 
 ---
 
-## Preprocessing
+## Project Objectives
 
-- Missing values removed
-- Log transformation applied to salary
-- Feature correlation analysis performed
-- Train/Test split (80/20)
-- Feature scaling applied for regularized models
-
----
-
-## Models Implemented
-
-### 1️ OLS (Ordinary Least Squares)
-- Forward Selection based on Test MSE
-- Final model selected using lowest validation error
-- Performance:
-  - MSE ≈ 0.99
-  - R² ≈ 0.40
-
-### 2️ PCR (Principal Component Regression)
-- PCA applied before regression
-- Cross-validation used to select number of components
-- Performance similar to OLS
-
-### 3️ PLS (Partial Least Squares)
-- Components optimized via Cross-Validation
-- Reduced dimensionality without loss of performance
-
-### 4️ Ridge Regression
-- Regularization parameter (alpha) explored
-- Coefficient shrinkage analyzed
-
-### 5️ Lasso Regression
-- L1 regularization
-- Feature selection via coefficient shrinkage
+- Perform structured Exploratory Data Analysis (EDA)
+- Apply log transformation to address skewness
+- Detect and analyze multicollinearity
+- Compare OLS, Ridge, and Lasso regression
+- Evaluate model performance using test data
+- Translate modeling results into business insights
 
 ---
 
-## Architecture
+## Methodology
 
-The project includes a modular regression framework:
+1. Data cleaning and preprocessing  
+2. Log transformation of salary  
+3. Correlation and multicollinearity analysis  
+4. Train-test split (80/20)  
+5. Feature scaling  
+6. Model training and cross-validation  
+7. Performance comparison (MSE, R²)
 
-- Abstract base class for regression models
-- Separate Ridge and Lasso implementations
-- Flexible alpha selection pipeline
-- Cross-validation evaluation
+---
+
+## Model Performance
+
+| Model | MSE | R² |
+|-------|------|------|
+| OLS | 0.953 | 0.427 |
+| Ridge | 0.952 | 0.427 |
+| Lasso | 0.952 | 0.427 |
+
+Regularization provided marginal improvement over OLS, 
+indicating that multicollinearity exists but does not severely 
+impact generalization.
 
 ---
 
 ## Key Insights
 
-- Salary distribution is heavily right-skewed → log transformation improved model assumptions.
-- Offensive contribution and playing time strongly correlate with salary.
-- Regularization did not significantly improve predictive performance compared to OLS.
-- Dimensionality reduction (PCR/PLS) did not outperform full-feature models.
+- Points scored (PTS) is the strongest salary predictor.
+- Salary is influenced by multiple performance metrics.
+- Extreme contracts are likely driven by non-performance factors.
+- Regularization stabilizes coefficients but does not dramatically improve accuracy.
 
 ---
 
-## Technologies Used
+## Tools & Technologies
 
 - Python
 - Pandas
 - NumPy
 - Scikit-Learn
-- Statsmodels
 - Matplotlib / Seaborn
+- Jupyter Notebook
 
+---
 
+## Author
+
+Myriam – Industrial Engineering & Management  
+Focused on data analysis and applied machine learning.
