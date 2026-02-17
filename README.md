@@ -43,27 +43,27 @@ Text-based variables (player, team, position) were removed.
 
 ## Models Implemented
 
-### 1️⃣ OLS (Ordinary Least Squares)
+### 1️ OLS (Ordinary Least Squares)
 - Forward Selection based on Test MSE
 - Final model selected using lowest validation error
 - Performance:
   - MSE ≈ 0.99
   - R² ≈ 0.40
 
-### 2️⃣ PCR (Principal Component Regression)
+### 2️ PCR (Principal Component Regression)
 - PCA applied before regression
 - Cross-validation used to select number of components
 - Performance similar to OLS
 
-### 3️⃣ PLS (Partial Least Squares)
+### 3️ PLS (Partial Least Squares)
 - Components optimized via Cross-Validation
 - Reduced dimensionality without loss of performance
 
-### 4️⃣ Ridge Regression
+### 4️ Ridge Regression
 - Regularization parameter (alpha) explored
 - Coefficient shrinkage analyzed
 
-### 5️⃣ Lasso Regression
+### 5️ Lasso Regression
 - L1 regularization
 - Feature selection via coefficient shrinkage
 
